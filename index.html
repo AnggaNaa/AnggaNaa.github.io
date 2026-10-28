@@ -1,0 +1,358 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.portrait{aspect-ratio:1076/1105!important;background:transparent!important;box-shadow:none!important}.portrait img{object-fit:contain!important;object-position:center!important;filter:drop-shadow(0 26px 34px rgba(0,0,0,.4))}</style></head><body>
+<title>Angga Nur Ardiansyah — Fullstack Developer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&family=Bodoni+Moda:opsz,wght@6..96,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFFFF; --ink:#0E0F10; --soft:#55595E; --line:rgba(14,15,16,.14);
+  --navy:#1E2E3C; --coral:#EF6B62; --yel:#F5BD32; --blue:#256A93; --cream:#FBF6EC;
+  --icon:#3A8BD0; --btn:#0E0F10; --btn-ink:#FFFFFF; --card:#FFFFFF; --card-ink:#0E0F10;
+  --bar:72px; --pad:clamp(24px,4.6vw,56px);
+  --sans:'Archivo','Helvetica Neue',Arial,sans-serif; --serif:'Bodoni Moda',Didot,'Times New Roman',serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){color-scheme:dark;--paper:#121417;--ink:#F3F0E9;--soft:#A6AAAF;--line:rgba(243,240,233,.16);--btn:#F3F0E9;--btn-ink:#121417;--card:#1A1D21;--card-ink:#F3F0E9}
+}
+:root[data-theme="dark"]{color-scheme:dark;--paper:#121417;--ink:#F3F0E9;--soft:#A6AAAF;--line:rgba(243,240,233,.16);--btn:#F3F0E9;--btn-ink:#121417;--card:#1A1D21;--card-ink:#F3F0E9}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
+
+/* ---------- fixed left frame ---------- */
+.leftbg{position:fixed;top:0;left:0;bottom:0;width:50%;background:var(--paper);z-index:1}
+.top{position:fixed;top:0;left:0;width:50%;z-index:6;padding:calc(48px + env(safe-area-inset-top,0px)) var(--pad) 0;pointer-events:none}
+.logo{pointer-events:auto;display:inline-flex;font-family:var(--serif);font-weight:600;font-size:42px;line-height:1;letter-spacing:-.02em;text-decoration:none}
+.logo i{font-style:normal;display:inline-block;transform:scaleX(1.25);transform-origin:left;margin-right:.18em}
+.bar{position:fixed;left:0;bottom:0;width:50%;height:calc(var(--bar) + env(safe-area-inset-bottom,0px));padding:0 var(--pad) env(safe-area-inset-bottom,0px);background:#000;color:#fff;z-index:6;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.social{display:flex;gap:6px;margin-left:-10px}
+.social a{width:42px;height:42px;display:grid;place-items:center;color:var(--icon);border-radius:50%}
+.social a:hover{background:#1b1b1b;color:#fff}
+.social svg{width:21px;height:21px}
+.bar-r{display:flex;align-items:center;gap:18px;font-size:13px;letter-spacing:.14em;font-weight:600}
+.count{font-variant-numeric:tabular-nums;color:#bbb}
+.count b{color:#fff;font-weight:600}
+.theme-btn{width:38px;height:38px;border-radius:50%;border:1px solid #444;background:none;color:#ddd;cursor:pointer;display:grid;place-items:center}
+.theme-btn:hover{border-color:#fff;color:#fff}
+
+/* ---------- burger + menu ---------- */
+.burger{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:22px;z-index:40;width:48px;height:48px;border-radius:50%;background:#16191C;border:1px solid rgba(255,255,255,.25);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.burger span{display:block;width:24px;height:2px;background:#fff;transition:transform .3s,opacity .3s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.menu{position:fixed;top:0;right:0;bottom:0;width:50%;z-index:35;background:rgba(17,22,27,.93);display:grid;grid-template-rows:repeat(5,1fr);transform:translateX(100%);visibility:hidden;transition:transform .55s cubic-bezier(.7,0,.2,1),visibility 0s .55s}
+.menu.open{transform:none;visibility:visible;transition:transform .55s cubic-bezier(.7,0,.2,1)}
+.menu a{display:flex;align-items:center;padding:0 clamp(28px,4vw,64px);color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:.16em;font-weight:600;font-size:18px;border-bottom:1px solid rgba(255,255,255,.22)}
+.menu a:last-child{border-bottom:0}
+.menu a span{font-size:12px;color:var(--yel);margin-right:22px;letter-spacing:.1em}
+.menu a:hover{background:rgba(255,255,255,.06);color:var(--yel)}
+
+/* ---------- chapters ---------- */
+.chs{margin-left:50%;position:relative}
+.ch{position:relative;height:100vh;min-height:560px}
+.art{position:absolute;inset:0;overflow:hidden;background:var(--navy)}
+.ch.sep .art{border-top:18px solid #161616}
+.art>svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.txt{position:fixed;left:0;top:0;width:50%;height:calc(100vh - var(--bar));z-index:3;display:flex;flex-direction:column;justify-content:center;padding:130px var(--pad) 36px;
+  opacity:0;visibility:hidden;transform:translateY(26px);transition:opacity .45s,transform .55s,visibility 0s .55s}
+.ch.on .txt{opacity:1;visibility:visible;transform:none;transition:opacity .55s .08s,transform .65s .08s cubic-bezier(.2,.8,.2,1),visibility 0s}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin:0 0 18px}
+.eyebrow::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--dot,var(--coral));flex:0 0 auto}
+.txt h1,.txt h2{font-family:var(--sans);font-weight:800;text-transform:uppercase;line-height:.9;letter-spacing:-.012em;margin:0 0 24px;font-size:clamp(40px,5.4vw,92px);overflow-wrap:break-word}
+.txt p{margin:0 0 16px;color:var(--soft);max-width:44ch}
+.txt .org{color:var(--ink);font-weight:600;font-size:19px;margin:-8px 0 14px}
+.tech{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin:4px 0 26px}
+.tech span{color:var(--soft);margin:0 .5em}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;background:var(--btn);color:var(--btn-ink);border:0;font:600 13px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--coral);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.stackg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px;max-width:520px}
+.stackg h3{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin:0 0 4px;color:var(--soft)}
+.stackg p{margin:0;color:var(--ink);font-weight:500}
+.c-list{list-style:none;margin:6px 0 0;padding:0;font-weight:600;font-size:18px;line-height:1.9}
+.c-list a{text-decoration:none;border-bottom:1.5px solid var(--line)}
+.c-list a:hover{border-color:var(--coral)}
+.copy{font-size:13px;color:var(--soft);margin-top:26px!important}
+
+/* ---------- right-side frames ---------- */
+.frame{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2}
+.portrait{width:min(64%,430px);aspect-ratio:1/1.08;background:#fff;padding:0;box-shadow:0 30px 60px -24px rgba(0,0,0,.45)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.shot{width:min(80%,660px);background:#fff;padding:10px;border:0;cursor:pointer;box-shadow:0 34px 70px -26px rgba(0,0,0,.6);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.shot img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.shot .tag{position:absolute;right:-10px;bottom:-16px;background:var(--yel);color:#121417;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:11px 14px}
+.shot:hover{transform:translate(-50%,-52%)}
+.card{width:min(84%,520px);background:var(--card);color:var(--card-ink);padding:clamp(26px,3.4vw,44px);box-shadow:0 34px 70px -26px rgba(0,0,0,.6)}
+.card h3{margin:0 0 18px;font-weight:800;text-transform:uppercase;font-size:24px;letter-spacing:-.005em}
+form{display:grid;gap:16px}
+label{display:grid;gap:4px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+input,textarea{font:inherit;font-size:16px;letter-spacing:0;text-transform:none;color:inherit;background:transparent;border:0;border-bottom:1.5px solid var(--line);padding:8px 0;border-radius:0}
+input:focus,textarea:focus{outline:none;border-color:var(--coral)}
+textarea{min-height:96px;resize:vertical}
+.card .btn{justify-self:start}
+.f-note{font-size:14px;color:var(--soft);margin:0;min-height:1.4em}
+
+/* ---------- modal ---------- */
+dialog{border:0;padding:0;background:var(--paper);color:var(--ink);width:min(1040px,94vw);max-height:92vh;overflow:auto}
+dialog::backdrop{background:rgba(14,18,22,.85)}
+.m-img{background:#121417;display:grid;place-items:center}
+.m-img img{width:100%;max-height:66vh;object-fit:contain}
+.m-thumbs{display:flex;gap:6px;padding:8px;background:#121417;overflow-x:auto}
+.m-thumbs:empty{display:none}
+.m-thumbs button{flex:0 0 auto;width:96px;height:60px;padding:0;border:2px solid transparent;background:#000;cursor:pointer;opacity:.55}
+.m-thumbs button[aria-current="true"]{border-color:var(--yel);opacity:1}
+.m-thumbs img{width:100%;height:100%;object-fit:cover}
+.m-body{padding:clamp(22px,4vw,44px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,240px);gap:28px}
+.m-body h3{font-weight:800;text-transform:uppercase;font-size:clamp(32px,4.6vw,56px);line-height:.92;margin:0 0 16px}
+.m-body p{margin:0;color:var(--soft);max-width:60ch}
+.m-meta h4{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin:0 0 8px;color:var(--soft)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 20px;padding:0;list-style:none}
+.chips li{font-size:14px;font-weight:600;padding:4px 10px;border:1.5px solid var(--ink)}
+.m-close{position:sticky;top:0;float:right;margin:12px 12px -60px 0;z-index:2;width:48px;height:48px;border:0;border-radius:50%;background:var(--coral);color:#fff;font-size:28px;line-height:1;cursor:pointer}
+.m-nav{display:flex;gap:8px}
+.m-nav button{flex:1;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:13px 8px;background:transparent;color:var(--ink);border:1.5px solid var(--line);cursor:pointer}
+.m-nav button:hover{border-color:var(--ink)}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ---------- mobile ---------- */
+@media (max-width:860px){
+  .leftbg{display:none}
+  .top{width:100%;height:calc(64px + env(safe-area-inset-top,0px));padding:calc(12px + env(safe-area-inset-top,0px)) 16px 0;background:var(--paper);border-bottom:1px solid var(--line);z-index:30}
+  .logo{font-size:32px}
+  .burger{top:calc(8px + env(safe-area-inset-top,0px));right:12px;width:46px;height:46px}
+  .chs{margin:0;padding-top:64px}
+  .ch{height:auto;min-height:0;scroll-margin-top:64px}
+  .ch.sep .art{border-top:0}
+  .art{position:relative;inset:auto;height:62vh;min-height:340px;max-height:620px}
+  .txt{position:static;width:auto;height:auto;opacity:1;visibility:visible;transform:none;padding:34px 16px 56px;transition:none}
+  .txt h1,.txt h2{font-size:clamp(38px,11vw,64px)}
+  .ch-contact .art{height:auto;max-height:none;padding:48px 16px}
+  .ch-contact .frame{position:relative;left:auto;top:auto;transform:none;margin:0 auto}
+  .card{width:100%}
+  .shot{width:88%}
+  .shot:hover{transform:translate(-50%,-50%)}
+  .portrait{width:70%}
+  .bar{position:relative;width:100%;padding:0 16px}
+  .count{display:none}
+  .menu{width:100%}
+  .m-body{grid-template-columns:1fr}
+}
+</style>
+
+<div class="leftbg" aria-hidden="true"></div>
+<header class="top"><a class="logo" href="#top" aria-label="Angga Nur Ardiansyah, back to top"><i>A</i>N</a></header>
+
+<button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+<nav class="menu" id="menu" aria-label="Main">
+  <a href="#top"><span>01</span>Home</a>
+  <a href="#work"><span>02</span>Work</a>
+  <a href="#journey"><span>03</span>Journey</a>
+  <a href="#stack"><span>04</span>Stack</a>
+  <a href="#contact"><span>05</span>Contact</a>
+</nav>
+
+<main class="chs" id="chs"></main>
+
+<footer class="bar">
+  <div class="social">
+    <a href="https://www.linkedin.com/in/angganurardiansyah" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4-.03-3.2-1.950-3.2-1.95 0-2.25 1.52-2.25 3.1V21H9z"/></svg></a>
+    <a href="https://github.com/AnggaNaa" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.370-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.550-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+    <a href="mailto:angga.ardiansyah955@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 5h20v14H2zm2 2v.4l8 5.6 8-5.6V7z"/></svg></a>
+    <a href="https://wa.me/6281211705891" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
+  </div>
+  <div class="bar-r">
+    <span class="count" id="count" aria-hidden="true"><b>01</b> / 21</span>
+    <button class="theme-btn" id="themeBtn" aria-label="Switch light or dark theme"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
+  </div>
+</footer>
+
+<dialog id="modal" aria-labelledby="mTitle">
+  <button class="m-close" id="mClose" aria-label="Close project">×</button>
+  <div class="m-img"><img id="mImg" alt=""></div>
+  <div class="m-thumbs" id="mThumbs"></div>
+  <div class="m-body">
+    <div><h3 id="mTitle"></h3><p id="mDesc"></p></div>
+    <div class="m-meta">
+      <h4 id="mStackH">Built with</h4><ul class="chips" id="mStack"></ul>
+      <h4>Area</h4><p id="mCat" style="margin:0 0 20px"></p>
+      <div class="m-nav"><button id="mPrev">Previous</button><button id="mNext">Next</button></div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const P = [{"t": "Progress & Disbursement", "c": "Finance", "d": "An internal system that tracks construction progress per unit and the bank disbursements tied to each stage. Teams upload progress, follow the S-curve and weekly meetings, and see monthly disbursement per project, stuck terms and unpaid amounts per bank.", "s": [], "imgs": ["assets/img-f3c838db20.jpg", "assets/img-ea3eb540be.jpg"]}, {"t": "E-Billing System", "c": "Finance", "d": "A digital finance system for recording cash in and out, managing bank books and handling IPL (environmental management fee) payments. It simplifies transaction tracking, generates reports and automates billing.", "s": ["React", "TypeScript", "Laravel", "MySQL"], "imgs": ["assets/img-e8df76b794.jpg", "assets/img-9e0db80f2f.jpg", "assets/img-9297f78f10.jpg"]}, {"t": "Nusa CRM", "c": "Web + Mobile", "d": "A multi-platform CRM with a web app and Android and iOS apps. Sales teams log leads, follow-ups and site visits, while managers track daily lead trends, closing targets and agent rankings. Laravel serves the API, Flutter powers the mobile apps.", "s": ["Flutter", "Laravel", "MySQL"], "imgs": ["assets/img-97b897dd4f.jpg", "assets/img-b02eddfe1d.jpg", "assets/img-12201ea690.jpg", "assets/img-7b778cdc8c.jpg"]}, {"t": "Grahayana Homes", "c": "Marketing site", "d": "The marketing website for Grahayana Homes, a premium housing project in Karawang: unit types, gallery, facilities, location, promos and a direct chat line to the marketing team.", "s": [], "imgs": ["assets/img-97d398455d.jpg", "assets/img-70c98aaf53.jpg", "assets/img-4ea82dc525.jpg"]}, {"t": "Karawang Green Village 3", "c": "Landing page", "d": "A landing page for the KGV3 family housing project, built to turn visitors into leads with WhatsApp consultation, unit types and a downloadable brochure.", "s": [], "imgs": ["assets/img-68e8ce08a4.jpg", "assets/img-67a0b929e1.jpg", "assets/img-de4122adfe.jpg"]}, {"t": "Citanusa Group Website", "c": "Company site", "d": "The corporate website for Citanusa Group, presenting the company, its housing businesses, careers and news.", "s": [], "imgs": ["assets/img-e1806021cd.jpg", "assets/img-2a8c4577bf.jpg"]}, {"t": "Task Management", "c": "Productivity", "d": "An internal workspace for tasks and deadlines, meeting room and vehicle reservations, purchase requisitions and IT tickets, with reminders sent as WhatsApp messages.", "s": ["Next.js", "TypeScript", "Laravel", "MySQL"], "imgs": ["assets/img-f78ed560dd.jpg", "assets/img-04dbe23316.jpg", "assets/img-7bb79258c9.jpg", "assets/img-3218b85e79.jpg", "assets/img-5a616608ba.jpg"]}, {"t": "E-Customer Complaint", "c": "Service", "d": "A web application for submitting, reviewing and processing customer complaints, with status updates sent automatically over WhatsApp. Customers can check their complaint status with a phone number.", "s": ["Next.js", "TypeScript", "Laravel", "MySQL"], "imgs": ["assets/img-5d6b7c3dd1.jpg", "assets/img-69e75838e9.jpg", "assets/img-7686be6478.jpg", "assets/img-d04efdd081.jpg"]}, {"t": "KPR System", "c": "Mortgage", "d": "A mortgage application platform covering every step from customer data entry and loan simulation to eligibility checks and final bank approval, with monthly reports on deals and cash realization.", "s": ["Blade", "Laravel", "MySQL"], "imgs": ["assets/img-1d15602a45.jpg", "assets/img-5f82ac91a7.jpg", "assets/img-5f4e4b00c4.jpg"]}, {"t": "CRM System", "c": "Sales", "d": "A platform that helps the business manage its interactions with customers, prospects and partners: lead tracking, sales data and performance reports in one place.", "s": ["React", "TypeScript", "Laravel", "MySQL"], "imgs": ["assets/img-870ada8e27.jpg"]}, {"t": "Asset Management", "c": "Operations", "d": "A central platform for recording, tracking, maintaining and auditing fixed and movable company assets, including loans, sales and disposal, reducing loss and improving data accuracy.", "s": ["TypeScript", "Laravel", "MySQL"], "imgs": ["assets/img-e32aee8f3b.jpg", "assets/img-8f9ea276ad.jpg"]}, {"t": "Management Dashboard", "c": "Reporting", "d": "A dashboard that turns uploaded Excel data into charts for management: pre-sales, conversion rate, inventory and cost efficiency.", "s": ["Next.js", "TypeScript", "Laravel", "MySQL"], "imgs": ["assets/img-d2b9628571.jpg"]}, {"t": "Whistleblowing System", "c": "Compliance", "d": "An internal reporting channel where employees can safely and confidentially report violations, misconduct or potential fraud, supporting transparency and accountability.", "s": ["TypeScript", "Laravel", "MySQL"], "imgs": ["assets/img-6544ec8c6a.jpg", "assets/img-b95d04c319.jpg", "assets/img-2dedbcf235.jpg"]}];
+const PORTRAIT = "assets/img-4bae0a55d4.png";
+
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const C={navy:'#1E2E3C',coral:'#EF6B62',yel:'#F5BD32',blue:'#256A93',cream:'#FBF6EC'};
+const COLS=[C.navy,C.coral,C.yel,C.blue,C.cream];
+
+/* ---- geometric pattern generator ---- */
+function rng(seed){let s=seed%2147483647||7;return()=>(s=s*16807%2147483647)/2147483647;}
+function cell(x,y,S,r){
+  const pick=()=>COLS[Math.floor(r()*COLS.length)];
+  const a=pick(); let b=pick(); while(b===a) b=pick();
+  const h=S/2, t=Math.floor(r()*5), o=Math.floor(r()*4);
+  let s=`<rect x="${x}" y="${y}" width="${S}" height="${S}" fill="${a}"/>`;
+  if(t<=1){ // half circle on an edge
+    s+=`<path fill="${b}" d="${[`M${x} ${y}A${h} ${h} 0 0 0 ${x+S} ${y}Z`,`M${x+S} ${y}A${h} ${h} 0 0 0 ${x+S} ${y+S}Z`,`M${x} ${y+S}A${h} ${h} 0 0 1 ${x+S} ${y+S}Z`,`M${x} ${y}A${h} ${h} 0 0 1 ${x} ${y+S}Z`][o]}"/>`;
+  }else if(t<=3){ // quarter circle from a corner
+    s+=`<path fill="${b}" d="${[`M${x} ${y}L${x+S} ${y}A${S} ${S} 0 0 1 ${x} ${y+S}Z`,`M${x+S} ${y}L${x+S} ${y+S}A${S} ${S} 0 0 1 ${x} ${y}Z`,`M${x+S} ${y+S}L${x} ${y+S}A${S} ${S} 0 0 1 ${x+S} ${y}Z`,`M${x} ${y+S}L${x} ${y}A${S} ${S} 0 0 1 ${x+S} ${y+S}Z`][o]}"/>`;
+  }else{ // full circle
+    s+=`<circle cx="${x+h}" cy="${y+h}" r="${h}" fill="${b}"/>`;
+  }
+  return s;
+}
+function blocks(seed){
+  const r=rng(seed*9973+11); let s='';
+  for(let j=0;j<5;j++) for(let i=0;i<4;i++) s+=cell(i*100,j*100,100,r);
+  return `<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${s}</svg>`;
+}
+function chevrons(){
+  const st=(id,rot)=>`<pattern id="${id}" patternUnits="userSpaceOnUse" width="240" height="240" patternTransform="rotate(${rot})"><rect width="60" height="240" fill="${C.coral}"/><rect x="60" width="60" height="240" fill="${C.navy}"/><rect x="120" width="60" height="240" fill="${C.yel}"/><rect x="180" width="60" height="240" fill="${C.blue}"/></pattern>`;
+  return `<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>${st('cA',45)}${st('cB',-45)}</defs>
+  <rect width="200" height="250" fill="url(#cB)"/><rect x="200" width="200" height="250" fill="url(#cA)"/>
+  <rect y="250" width="200" height="250" fill="url(#cA)"/><rect x="200" y="250" width="200" height="250" fill="url(#cB)"/></svg>`;
+}
+
+/* ---- chapter content ---- */
+const J=[
+  {d:'Dec 2023 – now',r:'Senior Fullstack Developer',o:'Citanusa Group',p:'Develops and maintains company servers and systems, integrates APIs, optimizes SQL queries for MySQL performance, ships and maintains the Android and iOS apps, and tests across devices and browsers.',now:1},
+  {d:'May – Oct 2023',r:'Fullstack Bootcamp',o:'PT Dumbways Indonesia Teknologi',p:'React, TypeScript, JavaScript, Chakra UI, Bootstrap, Express, Remix, Golang backend, Prisma, TypeORM and PostgreSQL.'},
+  {d:'Aug 2022 – Jan 2023',r:'Cybersecurity Analyst Intern',o:'Balitbang SDM Kementerian Kominfo',p:'Analyzed and designed computer networks, evaluated security with SIEM, and led cybersecurity projects using Scrum.'},
+  {d:'2020 – 2023',r:'Diploma, Information Systems',o:'Universitas Bina Sarana Informatika',p:'Three-year diploma covering software development, databases and systems analysis.'}
+];
+const dots=[C.coral,C.yel,C.blue,C.navy];
+const chapters=[];
+chapters.push({id:'top',art:chevrons()+`<div class="frame portrait"><img src="${PORTRAIT}" alt="Portrait of Angga Nur Ardiansyah"></div>`,
+  txt:`<p class="eyebrow">Fullstack Developer · East Jakarta</p>
+  <h1>Angga Nur Ardiansyah</h1>
+  <p>I build business systems end to end, from Laravel APIs and MySQL tuning to React and Next.js interfaces and Flutter apps. More than a dozen of them run in production at Citanusa Group today.</p>
+  <div class="btns"><a class="btn" href="#work">See my work</a><a class="btn ghost" href="#contact">Get in touch</a></div>`});
+chapters.push({id:'work',sep:1,art:blocks(2),
+  txt:`<p class="eyebrow" style="--dot:${C.yel}">Selected work · ${P.length} projects</p>
+  <h2>Work</h2>
+  <p>Internal platforms for finance, sales and operations teams, plus the marketing websites that bring in buyers. Scroll through each one, or open a project to see its screenshots.</p>
+  <div class="btns"><a class="btn" href="#p1">First project ↓</a></div>`});
+P.forEach((p,i)=>chapters.push({id:'p'+(i+1),art:blocks(i+3)+`<button class="frame shot" data-i="${i}" aria-label="Open ${esc(p.t)} screenshots"><img src="${p.imgs[0]}" alt="" loading="lazy"><span class="tag">${p.imgs.length>1?p.imgs.length+' screenshots':'View'} ↗</span></button>`,
+  txt:`<p class="eyebrow" style="--dot:${dots[i%4]}">${String(i+1).padStart(2,'0')} / ${P.length} · ${esc(p.c)}</p>
+  <h2>${esc(p.t)}</h2>
+  <p>${esc(p.d)}</p>
+  ${p.s.length?`<p class="tech">${p.s.map(esc).join('<span>/</span>')}</p>`:''}
+  <div class="btns"><button class="btn" data-i="${i}">View project ↗</button></div>`}));
+J.forEach((j,k)=>chapters.push({id:k?'j'+k:'journey',sep:!k,art:blocks(40+k),
+  txt:`<p class="eyebrow" style="--dot:${j.now?C.coral:C.blue}">Journey · ${esc(j.d)}${j.now?' · Current':''}</p>
+  <h2>${esc(j.r)}</h2><p class="org">${esc(j.o)}</p><p>${esc(j.p)}</p>`}));
+chapters.push({id:'stack',sep:1,art:blocks(60),
+  txt:`<p class="eyebrow" style="--dot:${C.yel}">Tools I use every day</p><h2>Stack</h2>
+  <div class="stackg"><div><h3>Front end</h3><p>React, Next.js, Tailwind CSS, Chakra UI, Bootstrap</p></div>
+  <div><h3>Back end</h3><p>Laravel, Express, Remix, TypeScript, JavaScript</p></div>
+  <div><h3>Mobile</h3><p>Flutter, Android release, iOS release</p></div>
+  <div><h3>Data</h3><p>MySQL, PostgreSQL, Prisma, TypeORM</p></div></div>`});
+chapters.push({id:'contact',cls:'ch-contact',art:blocks(77)+`<div class="frame card"><h3>Send a message</h3><form id="cform" novalidate>
+  <label>Name<input name="name" required autocomplete="name"></label>
+  <label>Email<input name="email" type="email" required autocomplete="email"></label>
+  <label>Message<textarea name="msg" required></textarea></label>
+  <a class="btn" id="sendBtn" href="mailto:angga.ardiansyah955@gmail.com" target="_blank" rel="noopener">Send email</a>
+  <p class="f-note" id="fnote" aria-live="polite"></p></form></div>`,
+  txt:`<p class="eyebrow">Open to new roles and projects</p><h2>Get in touch</h2>
+  <p>Hiring for a fullstack role, or need an internal system built? Send me a message and I’ll reply within a day.</p>
+  <ul class="c-list"><li><a href="mailto:angga.ardiansyah955@gmail.com">angga.ardiansyah955@gmail.com</a></li>
+  <li><a href="https://wa.me/6281211705891" target="_blank" rel="noopener">+62 812 1170 5891</a></li>
+  <li><a href="https://www.linkedin.com/in/angganurardiansyah" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/AnggaNaa" target="_blank" rel="noopener">GitHub</a></li></ul>
+  <p class="copy">© 2026 Angga Nur Ardiansyah · East Jakarta, Indonesia</p>`});
+
+const chs=document.getElementById('chs');
+chs.innerHTML=chapters.map((c,k)=>`<section class="ch${c.sep?' sep':''}${c.cls?' '+c.cls:''}${k===0?' on':''}" id="${c.id}" data-k="${k}"><div class="art">${c.art}</div><div class="txt">${c.txt}</div></section>`).join('');
+const secs=[...chs.querySelectorAll('.ch')];
+const countEl=document.getElementById('count');
+const total=String(secs.length).padStart(2,'0');
+
+/* ---- active chapter tracking ---- */
+let active=0;
+function setActive(k){
+  if(k===active) return; secs[active].classList.remove('on'); secs[k].classList.add('on'); active=k;
+  countEl.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;
+}
+countEl.innerHTML=`<b>01</b> / ${total}`;
+function onScroll(){
+  const mid=innerHeight/2; let best=0;
+  for(let k=0;k<secs.length;k++){const r=secs[k].getBoundingClientRect(); if(r.top<=mid) best=k; else break;}
+  setActive(best);
+}
+addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+/* ---- fit big headings to the left column ---- */
+function fit(){
+  const desk=matchMedia('(min-width:861px)').matches;
+  secs.forEach(s=>{const h=s.querySelector('h1,h2'); h.style.fontSize='';
+    if(!desk) return;
+    let fs=parseFloat(getComputedStyle(h).fontSize), guard=0;
+    const box=s.querySelector('.txt');
+    while((h.scrollWidth>h.clientWidth+1 || box.scrollHeight>box.clientHeight+1) && fs>30 && guard++<40){fs-=3;h.style.fontSize=fs+'px';}
+  });
+}
+document.fonts&&document.fonts.ready.then(fit); addEventListener('resize',fit); fit();
+
+/* ---- project modal ---- */
+const modal=document.getElementById('modal'); let cur=0;
+function fill(i){
+  cur=(i+P.length)%P.length; const p=P[cur];
+  const show=k=>{mImg.src=p.imgs[k];mImg.alt=`${p.t}, screenshot ${k+1} of ${p.imgs.length}`;
+    mThumbs.querySelectorAll('button').forEach((x,j)=>x.setAttribute('aria-current',j===k));};
+  mThumbs.innerHTML=p.imgs.length>1?p.imgs.map((s,k)=>`<button aria-label="Show screenshot ${k+1}"><img src="${s}" alt=""></button>`).join(''):'';
+  mThumbs.querySelectorAll('button').forEach((x,k)=>x.onclick=()=>show(k));
+  show(0);
+  mTitle.textContent=p.t; mDesc.textContent=p.d; mCat.textContent=p.c;
+  mStack.innerHTML=p.s.map(s=>`<li>${esc(s)}</li>`).join('');
+  mStackH.hidden=mStack.hidden=!p.s.length;
+}
+function openP(i){fill(i); if(!modal.open) modal.showModal(); modal.scrollTop=0;}
+chs.addEventListener('click',e=>{const b=e.target.closest('[data-i]'); if(b) openP(+b.dataset.i);});
+mClose.onclick=()=>modal.close();
+mPrev.onclick=()=>{fill(cur-1);modal.scrollTop=0};
+mNext.onclick=()=>{fill(cur+1);modal.scrollTop=0};
+modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});
+modal.addEventListener('keydown',e=>{if(e.key==='ArrowRight')mNext.click();if(e.key==='ArrowLeft')mPrev.click();});
+
+/* ---- menu ---- */
+const burger=document.getElementById('burger'), menu=document.getElementById('menu');
+function setMenu(o){burger.setAttribute('aria-expanded',o);menu.classList.toggle('open',o);burger.setAttribute('aria-label',o?'Close menu':'Open menu');}
+burger.onclick=()=>setMenu(!menu.classList.contains('open'));
+menu.querySelectorAll('a').forEach(a=>a.onclick=()=>setMenu(false));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+
+/* ---- theme ---- */
+const root=document.documentElement;
+try{const s=localStorage.getItem('theme'); if(s) root.dataset.theme=s;}catch(e){}
+themeBtn.onclick=()=>{
+  const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme=dark?'light':'dark';
+  try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}
+};
+
+/* ---- contact form ---- */
+const form=document.getElementById('cform'), send=document.getElementById('sendBtn'), note=document.getElementById('fnote');
+function upd(){
+  const f=new FormData(form);
+  const sub=encodeURIComponent(`Portfolio inquiry from ${f.get('name')||'a visitor'}`);
+  const body=encodeURIComponent(`${f.get('msg')||''}\n\n${f.get('name')||''}\n${f.get('email')||''}`);
+  send.href=`mailto:angga.ardiansyah955@gmail.com?subject=${sub}&body=${body}`;
+}
+form.addEventListener('input',upd);
+send.addEventListener('click',e=>{
+  if(!form.checkValidity()){e.preventDefault();note.textContent='Fill in your name, a valid email and a message, then send again.';return;}
+  upd(); note.textContent='Your email app opens with the message ready to send.';
+});
+</script>
+
+</body></html>
